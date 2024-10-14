@@ -26,7 +26,7 @@ if (ECDSA_PRIVATE_KEY == "" || MESSAGE_POINT_X0 == "" || MESSAGE_POINT_X1 == "" 
 
 async function main() {
     const BLS = await ethers.getContractFactory("BLS");
-    const wallet = new ethers.Wallet(BLS_CONTRACT_ADDRESS, ethers.provider);
+    const wallet = new ethers.Wallet(ECDSA_PRIVATE_KEY, ethers.provider);
     const BLSContract = new ethers.Contract("0xD29a2484C1D0EE935A1c4d197b20206dd8a8101C", BLS.interface, wallet);
 
     const msgpoint: G1PointStruct = { X: MESSAGE_POINT_X0, Y: MESSAGE_POINT_X1 };
